@@ -3,11 +3,10 @@ import PropTypes from 'prop-types'
 import Form from '../Form';
 import Input from '../../Input';
 import Button from '../../Button';
-import { login } from '../../../actions/auth';
 import { useDispatch, useSelector } from 'react-redux';
 import { signup } from '../../../actions/auth';
 import { useState } from 'react';
-import BooleanCheckbox from '../../BooleanCheckbox';
+import BooleanRadio from '../../BooleanRadio';
 
 const SignUp = ({ closeSignupForm }) => {
     const dispatch = useDispatch();
@@ -23,26 +22,19 @@ const SignUp = ({ closeSignupForm }) => {
     const [postalCode, setpostalCode] = useState('');
     const [city, setCity] = useState('');
     const [gender, setGender] = useState(false);
-    
-    
+
     const { message } = useSelector(state => state.message);
 
     const verifyPasswordAndSubmit = () => {
         dispatch(signup(firstname, lastname, mail, password, passwordConfirm, birthdayDate, phoneNumber, streetNumber, nameOfTheRoad, postalCode, city, gender));
     }
 
-    const onsubmit = () => {
-        closeSignupForm();
-        
-    }
-
-
     return (
         <Form handleSubmit={verifyPasswordAndSubmit}> 
             <p className="center" style={{color: "green"}}>{message}</p>
             <h2 className="signup-title center">Inscription</h2>
             <div className="gender">
-                <BooleanCheckbox 
+                <BooleanRadio 
                     label={["Madame", "Monsieur"]}
                     id={["femaleGender", "maleGender"]}
                     handleChange={setGender}
@@ -102,7 +94,7 @@ const SignUp = ({ closeSignupForm }) => {
                     handleChange={setCity}
                 />
             </div>
-            <div  onClick={onsubmit}>
+            <div  onClick={closeSignupForm}>
             <Button >S'inscrire</Button>
             </div>
 

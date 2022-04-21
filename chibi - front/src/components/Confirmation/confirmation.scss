@@ -1,8 +1,15 @@
 @use '../../styles/vars';
 
 .confirmation {
-    width: 60rem;
+    max-width: 700px;
     margin: auto;
     border-radius: vars.$border-radius;
-    padding: 4rem;
+    padding: 2rem;
+}
+
+@media only screen and (max-width: 550px) {
+    .confirmation {
+        padding: 1rem;
+        padding-top: 2rem;
+    }
 }

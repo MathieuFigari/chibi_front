@@ -20,14 +20,15 @@ const Login = ({ to }) => {
         setPassword('');
     }
 
+    // Si user connecté -> redirection accueil ou page de livraison
     if (isLoggedIn) {
         return <Redirect to={`${to}`} />
     };
 
     return (
         <Form handleSubmit={handleSubmitForm}>
-            <p className="center" style={{color: "green"}}>{messageLogin}</p>
-            <h2 className="login-title center">Connexion</h2>
+            <p className="login__message">{messageLogin}</p>
+            <h2 className="login__title">Connexion</h2>
             <Input 
                 type="email" 
                 name="mail" 
@@ -45,12 +46,8 @@ const Login = ({ to }) => {
                 handleChange={setPassword}
             />
             <Button>Se connecter</Button>
-            
-
         </Form>
     );
 };
-
-
 
 export default Login;

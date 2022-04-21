@@ -7,6 +7,8 @@ import './like.scss';
 
 const Like = ({ product }) => {
     const favorites = useSelector((state) => state.favoritesReducer.favorites);
+    console.log("favorites:", favorites);
+    console.log("product de Like:", product);
     const [classNameLike, setClassNameLike] = useState("left");
     const [classNameAnim, setClassNameAnim] = useState("like__icon");
     const [count, setCount] = useState(0);

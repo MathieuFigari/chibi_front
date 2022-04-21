@@ -1,16 +1,8 @@
 @use '../../../styles/vars';
 
 .orders {
-    width: 80%;
-    overflow-y: scroll;
-    background-color: vars.$tertiary-color;
-    border-radius: vars.$border-radius;
-    padding: 1.5rem;
-    margin: 0 auto;
-
     &__title {
         padding-bottom: 1rem;
-        margin-left: 1rem;
     }
 
     &__list {
@@ -38,4 +30,14 @@
     }
 
 
+}
+
+@media only screen and (max-width: 550px) {
+    .orders {
+        &__list {
+            &>div {
+                flex-basis: 100%;
+            }
+        }
+    }
 }

@@ -20,7 +20,6 @@ const favoritesReducer = (state = initialState, action = {}) => {
         return favorite.product_id !== action.productId;
       })
       return {
-        
         ...state,
         favorites: filteredFavorites,
       }

@@ -1,4 +1,3 @@
-import { useEffect } from 'react';
 import TrackOrder from '../TrackOrder';
 import './confirmation.scss';
 

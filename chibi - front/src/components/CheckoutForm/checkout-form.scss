@@ -1,7 +1,29 @@
 .checkout {
-    max-width: 50%;
+    max-width: 700px;
     margin: 2rem auto;
+    padding: 2rem;
 
+    &__message {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 6rem;
+    }
+
+    &__image {
+        animation: jump 0.4s ease-in-out infinite alternate;
+    }
+
+    &__text {
+        color: brown;
+        white-space: nowrap;
+        overflow: hidden;    
+        animation: animated-text 4s linear 1s 1 normal both;
+    }
+
+    &__cupcake {
+        width: 6rem;
+    }
 
     &__form-group {
         margin: 2rem 0;
@@ -44,16 +66,6 @@
     }
 }
 
-.text-animation {
-    white-space: nowrap;
-    overflow: hidden;    
-    animation: animated-text 4s linear 1s 1 normal both;
-}
-
-.image-animation {
-    animation: jump 0.4s ease-in-out infinite alternate;
-}
-
 @keyframes jump {
     0% {
         transform: translateY(0px);
@@ -75,6 +87,16 @@
 .StripeElement {
 	width: 100%;
 	padding: 11px 15px 11px 0;
+}
+
+@media only screen and (max-width: 550px) {
+    .checkout {
+        padding: 1rem;
+
+        &__image {
+            display: none;
+        }
+    }
 }
 
 

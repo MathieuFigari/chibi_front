@@ -7,7 +7,7 @@ import {
 import { setMessage } from '../actions/message';
 
 const axiosInstance = axios.create({
-  baseURL: 'https://chib-caf.herokuapp.com',
+  baseURL: 'https://chibi-api.herokuapp.com',
 });
 
 const userMiddleware = (store) => (next) => (action) => {
@@ -21,14 +21,11 @@ const userMiddleware = (store) => (next) => (action) => {
           },
         ).then(
           (response) => {
-            console.log(response)
             if (response.data.token) {
-              console.log("login",response)
               localStorage.setItem("user", JSON.stringify(response.data.user));
               localStorage.setItem("token", JSON.stringify(response.data.token));
               store.dispatch(connectUser(response.data));
-              store.dispatch({type: GET_USER_ADDRESSES});
-            } else if (response.data = "Email ou mot de passe incorrect") {
+            } else if (response.data === "Email ou mot de passe incorrect") {
               store.dispatch(messageLogin(response.data));
             }
           },
@@ -65,7 +62,6 @@ const userMiddleware = (store) => (next) => (action) => {
         },
       ).then(
         (response) => {
-          console.log(response)
           store.dispatch(setMessage(response.data));
         },
       ).catch(
@@ -111,8 +107,6 @@ const userMiddleware = (store) => (next) => (action) => {
         } 
       ).then((response) => {
         localStorage.setItem("user", JSON.stringify(response.data));
-        console.log("l'id :");
-
         console.log(response);
       },
       ).catch(
@@ -174,7 +168,7 @@ const userMiddleware = (store) => (next) => (action) => {
       const { token, user: {
         id,
       } } = store.getState().auth;
-
+      console.log(action)
       axiosInstance.post(
         '/newAddress',
         {            

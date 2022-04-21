@@ -26,6 +26,7 @@ const Informations = () => {
         principal_city
     } } = useSelector((state) => state.auth);
 
+    const [message, setMessage] = useState("");
     const [password, setPassword] = useState("");
     const [passwordConfirm, setPasswordConfirm] = useState("");
     const [actualPassword, setActualPassword] = useState("");
@@ -43,9 +44,9 @@ const Informations = () => {
 
     return (
         <AsideNavbar>
-            <div className="informations" style={{width: '80%', display: 'flex', justifyContent: 'center', alignItems: 'center'}}>
+            <div className="informations">
+                <h2>Mes informations personnelles</h2>
                 <Form handleSubmit={handleSubmitForm}> 
-                    <h2>Mes informations personnelles</h2>
                     <div className="gender">
                         <div>
                             <InputRadio type="radio" name="gender" id="genderFemale"
@@ -122,6 +123,7 @@ const Informations = () => {
                     </div>
 
                     <Button>Modifier</Button>
+                    <p style={{color: "green"}}>{message}</p>
                 </Form>
             </div>
         </AsideNavbar>

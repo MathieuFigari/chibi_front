@@ -1,5 +1,5 @@
 import { NavLink } from 'react-router-dom';
-import './storeNav.scss';
+import './store-nav.scss';
 
 export default function StoreNav({ categories }) {
     console.log(categories);

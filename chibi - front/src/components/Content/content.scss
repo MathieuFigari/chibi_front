@@ -1,13 +1,11 @@
 @use '../../styles/vars';
 
 .content {
-    padding: vars.$gutter;
     flex: 1;
 
     &__title {
         font-size: 2em;
         font-weight: bold;
-        color: vars.$primary-color;
         margin-bottom: vars.$gutter;
         border-bottom: vars.$border;
     }

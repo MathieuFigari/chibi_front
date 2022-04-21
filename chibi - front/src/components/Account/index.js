@@ -4,13 +4,12 @@ import { useState } from 'react';
 import Button from '../Button';
 import './account.scss';
 
-
 function Account() {
   const [openSignForm, setOpenSignForm] = useState(false)
   const [inscription, setInscription] = useState(false)
   const signUpclassName = openSignForm ? "auth-container-signup--open" : "auth-container-signup"
   const loginClassName = openSignForm ? "auth-container-login--close" : "auth-container-login"
-  const modConnectClasse = inscription ? "isClient--close" : "isClient";
+  const modConnectClass = inscription ? "isClient--close" : "isClient";
 
   const openSignupForm = () => {
     setOpenSignForm(true)
@@ -19,17 +18,16 @@ function Account() {
   const closeSignupForm = () => {
     setTimeout(function(){ setOpenSignForm(false); }, 2000);
     setInscription(true)
-    
   }
 
   return (
       <div className="auth">
-        <div className={signUpclassName}>
+        <div className={`${signUpclassName}`}>
           <SignUp closeSignupForm={closeSignupForm}/>
         </div>
-        <div className={loginClassName}>
+        <div className={`${loginClassName}`}>
           <Login to="/" />
-          <div className={modConnectClasse}>
+          <div className={`form__auth ${modConnectClass}`}>
             <h2 className="center">Nouveau Client ?</h2>
             <Button handleClick={openSignupForm}>Créer un Compte</Button>
         </div> 

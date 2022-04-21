@@ -21,7 +21,9 @@ const AsideNavbar = ({ children }) => (
             <ion-icon name="map"></ion-icon>
             </NavLink>
         </div>
+        <div className='aside-navbar__item form__auth'>
         { children }
+        </div>
     </div>
 );
 

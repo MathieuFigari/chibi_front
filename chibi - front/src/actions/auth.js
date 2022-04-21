@@ -17,6 +17,15 @@ export const connectUser = (data) => (
   }
 );
 
+export const MESSAGE_LOGIN = 'MESSAGE_LOGIN';
+
+export const messageLogin = (data) => (
+  {
+    type: MESSAGE_LOGIN,
+    data
+  }
+);
+
 export const LOGOUT = 'LOGOUT';
 
 export const logout = () => (
@@ -43,15 +52,6 @@ export const signup = (firstname, lastname, mail, password, passwordConfirm, bir
     postalCode, 
     city, 
     gender
-  }
-);
-
-export const REGISTER_USER = 'REGISTER_USER';
-
-export const registerUser = (data) => (
-  {
-    type: REGISTER_USER,
-    data,
   }
 );
 
@@ -88,14 +88,23 @@ export const GET_USER_ADDRESSES = 'GET_USER_ADDRESSES';
 
 export const GET_ADDRESSES = 'GET_ADDRESSES';
 
-export const getAddresses = (data) => (
+export const getAddresses = (address) => (
   {
     type: GET_ADDRESSES,
-    data
+    address
   }
 );
 
-export const ADD_NEW_ADDRESS = 'NEW_ADDRESS';
+export const NEW_ADDRESS = 'NEW_ADDRESS';
+
+export const newAddress = (address) => (
+  {
+    type: NEW_ADDRESS,
+    address
+  }
+);
+
+export const ADD_NEW_ADDRESS = 'ADD_NEW_ADDRESS';
 
 export const addNewAddress = (address) => (
   {
@@ -124,27 +133,11 @@ export const deleteAddress = (address) => (
 
 export const GET_ORDERS = 'GET_ORDERS';
 
-export const getOrders = (orders) => (
-  { 
-  type: GET_ORDERS,
-  orders
-  }
-);
-
 export const SAVE_ORDERS = 'SAVE_ORDERS';
 
 export const saveOrders = (data) => (
   {
     type: SAVE_ORDERS,
-    data
-  }
-);
-
-export const MESSAGE_LOGIN = 'MESSAGE_LOGIN';
-
-export const messageLogin = (data) => (
-  {
-    type: MESSAGE_LOGIN,
     data
   }
 );

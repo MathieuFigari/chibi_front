@@ -1,7 +1,7 @@
 @use '../../styles/vars';
 
 .basic-input {
-    padding: vars.$halfGutter;
+    padding: 0.75rem;
     border-radius: vars.$border-radius;
     border: vars.$border; 
     width: 100%;

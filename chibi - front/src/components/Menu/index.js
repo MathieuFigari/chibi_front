@@ -11,7 +11,6 @@ import CoffeeLoader from '../CoffeeLoader';
 import './menu.scss';
 
 function Menu() {
-  const [ loading, setLoading ] = useState(true);
   const [seeProducts, setOpenProducts] = useState(false)
   const [pageProducts, setProducts] = useState([])
   const [categorieName, setNameCat] = useState([])
@@ -19,7 +18,10 @@ function Menu() {
   const [mouseoverLiquid, setMouseoverLiquid] = useState('')
   const [mouseoverSolid, setMouseoverSolid] = useState('')
 
-  const categories = useSelector((state) => state.shop.categories)
+  const loadingMenu = useSelector((state) => state.message.loadingMenu);
+  const loadingArticles = useSelector((state) => state.message.loadingArticles);
+
+  const categories = useSelector((state) => state.shop.categories.filter(category => category.type_of_product === false))
   const products = useSelector((state) => state.shop.products)
 
   const findProducts = (target, target2) => {
@@ -51,13 +53,11 @@ function Menu() {
     () => {
       dispatch(fetchFoodCategories())
       dispatch(fetchArticles())
-      setTimeout(() => setLoading(false), 2000);
-      
     },
     [],
   );
 
-  if (loading) {
+  if (loadingMenu && loadingArticles) {
     return <CoffeeLoader />;
   }
 

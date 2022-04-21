@@ -1,4 +1,3 @@
-import localisation from "../../../assets/localisation.png";
 import Map from '../../Map';
 import './adresse.scss';
 

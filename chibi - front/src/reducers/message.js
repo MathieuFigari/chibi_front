@@ -1,8 +1,9 @@
-import { SET_MESSAGE, SET_LOADING_STORE_FALSE, SET_LOADING_FALSE } from '../actions/message';
+import { SET_MESSAGE, SET_LOADING_ARTICLES, SET_LOADING_MENU, SET_LOADING_CATEGORIES } from '../actions/message';
 
 export const initialState = {
-  loading: true, 
-  loadingStore: true
+  loadingArticles: true, 
+  loadingMenu: true,
+  loadingCategories: true
 };
 
 const messageReducer = (state = initialState, action = {}) => {
@@ -12,15 +13,20 @@ const messageReducer = (state = initialState, action = {}) => {
         ...state,
         message: action.message
       };
-    case SET_LOADING_FALSE:
+    case SET_LOADING_ARTICLES:
       return {
         ...state,
-        loading: false
+        loadingArticles: false
       };
-    case SET_LOADING_STORE_FALSE:
+    case SET_LOADING_MENU:
       return {
         ...state,
-        loadingStore: false
+        loadingMenu: false
+      };
+    case SET_LOADING_CATEGORIES:
+      return {
+        ...state,
+        loadingCategories: false
       };
     default:
       return state;

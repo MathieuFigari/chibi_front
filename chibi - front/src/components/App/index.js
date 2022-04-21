@@ -6,7 +6,7 @@ import { Route, Switch, useLocation } from 'react-router-dom';
 import Home from '../Home';
 import Cart from '../Cart';
 import Delivery from '../Delivery';
-import Addresses from '../Addresses';
+import Addresses from '../Account/Addresses';
 import Contact from '../Contact';
 import Menu from '../Menu';
 import Account from '../Account';
@@ -29,7 +29,6 @@ function App() {
   const [classNameBackground, setClassNameBackground] = useState('accueil');
   const categories = useSelector((state) => state.shop.categories);
   const location = useLocation();
-
 
   useEffect(() => {
     switch (location.pathname) {

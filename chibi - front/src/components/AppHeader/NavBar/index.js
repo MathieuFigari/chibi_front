@@ -58,20 +58,20 @@ function NavBar({ cartCount }) {
       </div>
       <div className="navbar__mobile">
       {isLoggedIn?
-      <NavLink className="navlink"   exact to="/compte/informations">
-        <div >
-        <i className="fas fa-user"></i>
-        </div>
+        <NavLink className="navlink" exact to="/compte/informations">
+          <div >
+            <i className="fas fa-user"></i>
+          </div>
         </NavLink>
         :    
-      <NavLink className="navbar__mobile__accountIcon" to="/compte">
-      <div >
-      <i className="fas fa-user"></i>
-      </div>
-      </NavLink>
+        <NavLink className="navbar__mobile__accountIcon" to="/compte">
+          <div >
+            <i className="fas fa-user"></i>
+          </div>
+        </NavLink>
       }
       <div className="navbar__mobile__title">
-      <h4> Chibi</h4>
+      <h4><a href="/">Chibi</a></h4>
       </div>
       <NavLink className="navbar__mobile__cartIcon" to="/panier">
       <div >
@@ -82,7 +82,7 @@ function NavBar({ cartCount }) {
         <div className="menu-btn__burger"></div>
         </div>
       </div>
-      <div className={menuClassName}>
+      <div className={`menu__mobile ${menuClassName}`}>
         <Link className="menu__mobile__link" to="/"><i className="fas fa-home"></i> Accueil</Link>
         <Link className="menu__mobile__link" to="/boutique"><i className="fas fa-store"></i> Boutique</Link>
         <Link className="menu__mobile__link" to="/menu"><i className="fas fa-utensils"></i> Menu</Link>

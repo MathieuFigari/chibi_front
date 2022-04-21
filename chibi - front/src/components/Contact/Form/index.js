@@ -26,10 +26,10 @@ const Form = ({ className, closeForm }) => {
             message,
         }
         emailjs.send(
-            'gmail',
-            'template_uetd8rv',
+            'my_gmail',
+            'template_db83b08',
             templateParams,
-            'user_gSMIoHR0ZYwbPcTrh5jsH'
+            'user_ArfWVVGSJEvGb8dc6tTwO'
             )
         .then((response) => {
         console.log('SUCCESS!', response.status, response.text);

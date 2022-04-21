@@ -1,9 +1,9 @@
 import axios from 'axios';
 
-import { ADD_FAVORITES, FETCH_FAVORITES, saveFavorites, DELETE_FAVORITES } from '../actions/favorites';
+import { ADD_FAVORITES, FETCH_FAVORITES, saveFavorites, DELETE_FAVORITES, removeFavorites } from '../actions/favorites';
 
 const axiosInstance = axios.create({
-  baseURL: 'https://chib-caf.herokuapp.com/',
+  baseURL: 'https://chibi-api.herokuapp.com',
 })
 
 const favoritesMiddleware = (store) => (next) => (action) => {
@@ -14,7 +14,7 @@ const favoritesMiddleware = (store) => (next) => (action) => {
       console.log("id de user:", id);
       console.log("action.product:", action.product.id);
       console.log("token:", token);
-        axios.post(`https://chib-caf.herokuapp.com/useWishList/${id}`, {id: action.product.id}, {
+        axios.post(`https://chibi-api.herokuapp.com/useWishList/${id}`, {id: action.product.id}, {
           credentials: 'include',
           headers: {
             Authorization: `Bearer ${token}`,
@@ -26,7 +26,7 @@ const favoritesMiddleware = (store) => (next) => (action) => {
             store.dispatch({type: FETCH_FAVORITES});
           }
         ).catch(
-          (error) => console.log("erreur: pas d'ajout en favoris", error)  
+          (error) => console.log("erreur: pas d'ajout en favoris", error)
         );
         next(action);
         break;
@@ -56,18 +56,13 @@ const favoritesMiddleware = (store) => (next) => (action) => {
   
       case DELETE_FAVORITES: {
         const { token, user: { id } } = store.getState().auth;
-        console.log("productId:", action.productId);
-        console.log("token de delete:", token);
-        console.log("id de user:", id);
         axiosInstance.delete(`/useWishList/${id}`, {
           data: { id: action.productId }, 
           headers: { "Authorization": `Bearer ${token}` }
         })
         .then(
           (response) => {
-            console.log("response.data de delete :", response.data);
-            // store.dispatch(removeFavorites(action.productId));
-            store.dispatch({type: FETCH_FAVORITES});
+            store.dispatch(removeFavorites(action.productId));
           }
         )
         .catch(

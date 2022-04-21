@@ -5,7 +5,7 @@ import panda from '../../assets/panda.png';
 function AppHeader() {
     return (
       <div className="header">
-          <h1 className="header__title">Chibi Café <img src={panda} alt='panda'></img></h1>
+          <h1 className="header__title"><a href="/">Chibi Café <img src={panda} alt='panda' /></a></h1>
           <NavBar />
       </div>
     );

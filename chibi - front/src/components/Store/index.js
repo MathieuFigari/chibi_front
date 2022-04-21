@@ -1,7 +1,7 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import { fetchCategories } from "../../actions/shop";
 
 import presImage from "../../assets/presentation-sables/presentation-sables.png";
@@ -11,19 +11,18 @@ import './store.scss';
 import CoffeeLoader from '../CoffeeLoader';
 
 const Store = () => {
-  const [ loading, setLoading ] = useState(true);
   const categories = useSelector((state) => state.shop.categories)
+  const loadingCategories = useSelector((state) => state.message.loadingCategories);
 
   const dispatch = useDispatch();
   useEffect(
     () => {
       dispatch(fetchCategories());
-      setTimeout(() => setLoading(false), 2000);
     },
     [],
   );
 
-  if (loading) {
+  if (loadingCategories) {
     return <CoffeeLoader />;
   }
 

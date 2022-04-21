@@ -9,6 +9,7 @@ import {
 } from '../actions/shop';
 
 import {
+    SAVE_FOODS,
     SAVE_FOODCATEGORIES
 } from '../actions/menu'
 
@@ -19,7 +20,7 @@ export const initialState = {
 };
 
 
-const shopReducer = (state = initialState, action = {} ) => {
+const shopReducer = (state = initialState, action ) => {
     let updatedCart;
     let updatedItemIndex;
 
@@ -38,8 +39,13 @@ const shopReducer = (state = initialState, action = {} ) => {
         case SAVE_FOODCATEGORIES:
             return{
                 ...state,
-                categories: action.foodCategories.filter(category => category.type_of_product === false),
+                categories: action.foodCategories
             };
+        case SAVE_FOODS:
+            return{
+                ...state,
+                products: action.foods
+            }       
             
         case INCREMENT_CART_ITEM_QUANTITY:
             updatedCart = [...state.cart];
@@ -98,7 +104,7 @@ const shopReducer = (state = initialState, action = {} ) => {
                 item => item.id === action.payload
             );
 
-            updatedCart.splice(updatedItemIndex);
+            updatedCart.splice(updatedItemIndex, 1);
             return {...state, cart: updatedCart};
         case REMOVE_CART:
             return {

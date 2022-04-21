@@ -8,7 +8,7 @@ const Solid = ({ solids, findProducts, mouseleave, mouseoverSolid, setMouseoverS
 return (
 
     <div className='solid'>
-    { solids.map((solid) => (
+    {solids.map((solid) => (
         <SolidCats  key={solid.id}  {...solid} findProducts={findProducts} mouseoverSolid={mouseoverSolid} setMouseoverSolid={setMouseoverSolid}
            newClassName={mouseoverSolid === "" ? "" : mouseoverSolid === solid.category_name ? "active" : "inactive"} 
         />

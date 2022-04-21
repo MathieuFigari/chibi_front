@@ -31,7 +31,7 @@ export default function Carousels() {
                         <img src={carousel1} alt="café" />
                     </div>
                     <div className="slide">
-                        <img src={carousel2} />
+                        <img src={carousel2} alt="café" />
                     </div>
                     <div className="slide">
                     <img src={carousel3} alt="sablés" />
@@ -44,7 +44,7 @@ export default function Carousels() {
                     <img src={carousel4} alt="café" />
                     </div>
                     <div className="slide">
-                    <img src={carousel5} />
+                    <img src={carousel5} alt="gateaux" />
                     </div>
                     <div className="slide">
                     <img src={carousel6} alt="sablés" />

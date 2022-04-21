@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import PropTypes from 'prop-types';
 
-const CategoriesCard = ({ id, category_name, category_picture }) => {
+const CategoriesCard = ({category, id, category_name, category_picture }) => {
 
     const className = id === 5 ? "container__right" : "container__left";
 

@@ -20,6 +20,8 @@ function Contact() {
   
   
 
+  console.log(overlayClass)
+
   const openFormContact = () => {
     if(openForm === true){
       setOpenForm(false)

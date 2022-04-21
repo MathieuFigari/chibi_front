@@ -1,10 +1,6 @@
-import './boolean-checkbox.scss';
-import UserAddress from '../Delivery/UserAddress';
-import NewAddress from '../Delivery/NewAddress';
+import './boolean-radio.scss';
 
-const Delivery = ({ 
-    label, id, handleChange, checked, newAddress, handleChangeNewAddress, userAddress, setUserAddress
-}) => {
+const BooleanRadio = ({ label, id, handleChange, checked }) => {
     const stringToBoolean = (value) => {
         if (value && typeof value === "string") {
              if (value.toLowerCase() === "true") return true;
@@ -30,16 +26,10 @@ const Delivery = ({
                         checked={checked === option.value}
                         />
                     <label htmlFor={option.id}>{option.label}</label>
-                    {option.id === "userAddress" &&  
-                        <UserAddress userAddress={userAddress} setUserAddress={setUserAddress}
-                    />}
-                    {option.id === "newAddress" && 
-                        <NewAddress newAddress={newAddress} handleChange={handleChangeNewAddress}
-                    />}
                 </div>
             ))}
         </>
     );
 };
 
-export default Delivery;
+export default BooleanRadio;

@@ -13,7 +13,7 @@ $pink-shadow: #ffe3e2;
     justify-content: center;
     align-items: center;
     font-family: 'Rubik', sans-serif;
-    font-size: 1rem;
+    font-size: 0.9rem;
     position: relative;
     //cursor: pointer;
     outline: none;
@@ -80,11 +80,12 @@ $pink-shadow: #ffe3e2;
     }
 }
 
-@media only screen and (max-width: 600px) {
+@media only screen and (max-width: 900px) {
   .basic-button {
+    font-size: 0.75rem;
+
     &__animation {
       height: 2rem;
     }
   }
-
 }

@@ -7,18 +7,26 @@ export const setMessage = (message) => (
   }
 );
 
-export const SET_LOADING_FALSE = 'SET_LOADING_FALSE';
+export const SET_LOADING_MENU = 'SET_LOADING_MENU';
 
-export const setLoadingFalse = () => (
+export const setLoadingMenu = () => (
   {
-    type: SET_LOADING_FALSE,
+    type: SET_LOADING_MENU,
   }
 );
 
-export const SET_LOADING_STORE_FALSE = 'SET_LOADING_STORE_FALSE';
+export const SET_LOADING_ARTICLES = 'SET_LOADING_ARTICLES';
 
-export const setLoadingStoreFalse = () => (
+export const setLoadingArticles = () => (
   {
-    type: SET_LOADING_STORE_FALSE,
+    type: SET_LOADING_ARTICLES,
+  }
+);
+
+export const SET_LOADING_CATEGORIES = 'SET_LOADING_CATEGORIES';
+
+export const setLoadingCategories = () => (
+  {
+    type: SET_LOADING_CATEGORIES,
   }
 );

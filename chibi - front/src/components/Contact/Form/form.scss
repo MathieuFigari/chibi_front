@@ -120,11 +120,6 @@
     .form{
         flex-direction: row;
         justify-content: space-between;
-
-
-        .basic-input{
-            padding: 0.4rem;
-        }
     }
 
     .message{
@@ -218,13 +213,3 @@
     bottom: 60px;    
     }
 }
-
-
-@media only screen and (max-height: 750px) {
-
-   .basic-input{
-       height: 23px;
-   }
-  
-  }
-  

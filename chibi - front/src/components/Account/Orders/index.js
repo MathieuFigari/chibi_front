@@ -1,5 +1,5 @@
 import AsideNavbar from '../AsideNavbar';
-import { getOrders } from '../../../actions/auth';
+import { GET_ORDERS } from '../../../actions/auth';
 import './orders.scss';
 import { useDispatch, useSelector } from 'react-redux';
 import { useEffect } from 'react';
@@ -9,14 +9,15 @@ const Orders = () => {
     const dispatch = useDispatch();
     const { orders } = useSelector((state) => state.auth);
 
-    useEffect(() => dispatch(getOrders()), []);
+    useEffect(() => dispatch({type: GET_ORDERS}), []);
+
     return (
         <AsideNavbar>
             <div className="orders">
                 <h2 className="orders__title">Mes commandes</h2>
                 <div className="orders__list">
                     {orders && orders.map(order => (
-                        <TrackOrder key={order.id}  order={order} />
+                        <TrackOrder order={order} />
                     ))}
                 </div>
             </div>

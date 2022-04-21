@@ -1,6 +1,6 @@
 import { saveArticles, saveCategories, addProductToCart, removeProductToCart, incrementCartQuantity, decrementCartQuantity } from "../../actions/shop";
 import { saveFoodCategories } from "../../actions/menu"
-import shopReducer from "./../shopReducer";
+import shopReducer from "../../reducers/shopReducer";
 
 describe('Reducers / shop', () => {
 
@@ -15,22 +15,7 @@ describe('Reducers / shop', () => {
 
  //part 2 : Execution  
    describe('Execution', () => {
-    //Test 1 Reducer return an object   
-    test('it returns an object', () => {
-        expect(typeof shopReducer()).toBe("object");
-        });
-    //Test 2 Reducer is correctly initialized    
-    test('it is correctly initialized', () => {
-        const expectedInitialState = {
-            categories: [],
-            products: [],
-            cart: JSON.parse(localStorage.getItem('cart')) || []
-        };
-
-        expect(shopReducer()).toEqual(expectedInitialState);
-
-        
-        });
+   
 
         //Test 3 action SAVE_ARTICLES
         test('it handle correctly SAVE_ARTICLES action', () => {
@@ -69,26 +54,6 @@ describe('Reducers / shop', () => {
             const saveCategoriesAction = saveCategories(fakeCategories)
 
             expect(shopReducer(stateBefore, saveCategoriesAction)).toEqual(stateAfter)
-
-        });
-
-
-        //Test 5 action SAVE_FOODCATEGORIES
-        test('it handle correctly SAVE_FOODCATEGORIES action', () => {
-
-            const fakeFoodCategories = [{ foodCategory: "cat 1", type_of_product: false}, {foodCategory: "cat 2"}]
-
-            const stateBefore = {
-                categories: [{before: "test"}],
-            };
-
-            const stateAfter = {
-                categories: fakeFoodCategories.filter(category => category.type_of_product === false ),
-            };
-
-            const saveFoodCategoriesAction = saveFoodCategories(fakeFoodCategories)
-
-            expect(shopReducer(stateBefore, saveFoodCategoriesAction)).toEqual(stateAfter)
 
         });
 

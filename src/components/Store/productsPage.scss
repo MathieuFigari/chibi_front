@@ -1,0 +1,111 @@
+@use '../../styles/vars';
+
+.store-container{
+    display: flex;
+    max-width: 1000px;
+    justify-content: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+    align-items: center;
+    margin: auto;
+    padding: 1.5rem;
+    padding-bottom: 4rem;
+}
+
+.storeCard{
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    width: 30%;
+    gap: 0.5rem;
+    align-items: center;
+    border-radius: 1rem;
+    border: 1px solid vars.$tertiary-color;
+    box-shadow: vars.$box-shadow;
+    padding: vars.$halfGutter;
+
+    &__name{
+        margin-top: 0.5rem;
+        font-size: 1rem;
+    }
+
+    &__price{
+        font-size: 1rem;
+    }
+
+    &__img{
+        width: 200px;
+        height: 150px;
+        overflow: hidden;
+    }
+
+    &__modale{
+        position: absolute;
+        opacity: 0;
+        right: 25px;
+        bottom: 45px;
+        font-size: 1.5rem;
+        color: #f02759;
+        font-weight: bold;
+
+    }
+
+}
+
+.modaleAnim{
+    bottom: 45px;
+    bottom: 150px;
+    transform: rotate(360deg);
+    transition: all .5s ease-in-out;
+    animation: modaledisparition 6s;
+    
+    
+}
+
+.productsPage__title{
+    text-align: center;
+    font-size: 1.5rem;
+}
+
+@keyframes jump {
+    0% {
+        transform: translateY(3px);
+    }
+    100% {
+        transform: translateY(5px);
+    }
+}
+
+
+@keyframes modaledisparition {
+  
+    0%{
+        opacity: 1;
+    }
+
+
+    100%{
+        opacity: 0;
+    }
+  
+}
+
+@media only screen and (max-width: 750px) {
+  .storeCard{
+    width: 40%;
+
+    &__name{
+        font-size: 0.8rem;
+    }
+
+    &__price{
+        font-size: 0.8rem;
+    }
+  }
+}
+
+@media only screen and (max-width: 600px) {
+    .storeCard{
+        width: 250px;
+    }
+}

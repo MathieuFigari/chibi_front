@@ -1,0 +1,49 @@
+@use '../../styles/vars';
+
+.store-nav {
+    padding: 2rem;
+    display: flex;
+    justify-content: center;
+    gap: vars.$gutter;
+    margin-top: 0.5rem;
+
+    &__link {
+        display: block;
+        text-align: center;
+        padding: vars.$halfGutter;
+        border-radius: 1rem;
+        border: 1px solid #f3f3f3;
+        box-shadow: -5px 6px 10px 2px rgb(0 0 0 / 17%);
+        transition: all 0.2s ease-in-out;
+
+        &:hover , &--selected {
+            background-color: #fff0f09a;
+            border-color: #b18597;
+        }
+    }
+}
+
+@media only screen and (max-width: 600px) {
+    .store-nav {
+        padding: 1rem;
+        gap: vars.$halfGutter;
+
+        &__link {
+            padding: 0.5rem;
+        }
+    }
+}
+
+@media only screen and (max-width: 500px) {
+    .store-nav {
+        flex-wrap: wrap;
+
+        &__item {
+            width: 45%;
+        }
+
+        &__link {
+            height: 50px;
+        }
+    }
+}

@@ -28,7 +28,7 @@
   },
   "scripts": {
     "start": "react-scripts start",
-    "build": "react-scripts build",
+    "build": "CI= react-scripts build",
     "test": "react-scripts test --verbose --transformIgnorePatterns \"node_modules/(?!@react-leaflet)/\"",
     "eject": "react-scripts eject"
   },

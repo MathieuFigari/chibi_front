@@ -38,7 +38,7 @@ export default function CheckoutForm() {
       try {
         console.log('[PaymentMethod]', paymentMethod);
         const { id } = paymentMethod;
-        const response = await axios.post("https://chibi-api.herokuapp.com/createCheckoutSession", { 
+        const response = await axios.post("https://chib-caf.herokuapp.com/createCheckoutSession", { 
           cart,
           id,
         });
@@ -47,7 +47,7 @@ export default function CheckoutForm() {
           console.log("Successful payment");
           setSuccess(true);
           try {
-            const responseOrder = await axios.post("https://chibi-api.herokuapp.com/order", { 
+            const responseOrder = await axios.post("https://chib-caf.herokuapp.com/order", { 
               state
             });
             if(responseOrder.data.id) {

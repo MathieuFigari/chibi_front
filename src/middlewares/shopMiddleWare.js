@@ -8,7 +8,7 @@ const shopMiddleWare = (store) => (next) => (action) => {
   switch (action.type) {
     case FETCH_ARTICLES: {
 
-        axios.get('https://chibi-api.herokuapp.com/products')
+        axios.get('https://chib-caf.herokuapp.com/products')
         .then(
           (response) => {
           store.dispatch(saveArticles(response.data))
@@ -21,7 +21,7 @@ const shopMiddleWare = (store) => (next) => (action) => {
     }
 
     case FETCH_CATEGORIES: {
-      axios.get('https://chibi-api.herokuapp.com/category')
+      axios.get('https://chib-caf.herokuapp.com/category')
       .then(
         (response) => {
           store.dispatch(saveCategories(response.data))
@@ -39,7 +39,7 @@ const shopMiddleWare = (store) => (next) => (action) => {
       console.log("state", state)
 
 
-      axios.post('https://chibi-api.herokuapp.com/checkPrice',
+      axios.post('https://chib-caf.herokuapp.com/checkPrice',
       {
          state
       })

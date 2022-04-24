@@ -5,9 +5,6 @@ import './liquid.scss';
 
 const Liquid = ({ liquids, findProducts, mouseoverLiquid, setMouseoverLiquid }) => { 
 
-
-    
-
 return (
 
     <div  className='liquid'>

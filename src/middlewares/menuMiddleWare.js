@@ -9,7 +9,7 @@ const menu = (store) => (next) => (action) => {
      
   
       case FETCH_FOODCATEGORIES: {
-        axios.get('https://chibi-api.herokuapp.com/category')
+        axios.get('https://chib-caf.herokuapp.com/category')
         .then(
           (response) => {
             store.dispatch(saveFoodCategories(response.data))

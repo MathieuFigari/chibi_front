@@ -7,7 +7,7 @@ import {
 import { setMessage } from '../actions/message';
 
 const axiosInstance = axios.create({
-  baseURL: 'https://chibi-api.herokuapp.com',
+  baseURL: 'https://chib-caf.herokuapp.com',
 });
 
 const userMiddleware = (store) => (next) => (action) => {

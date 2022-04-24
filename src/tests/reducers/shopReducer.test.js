@@ -1,5 +1,4 @@
 import { saveArticles, saveCategories, addProductToCart, removeProductToCart, incrementCartQuantity, decrementCartQuantity } from "../../actions/shop";
-import { saveFoodCategories } from "../../actions/menu"
 import shopReducer from "../../reducers/shopReducer";
 
 describe('Reducers / shop', () => {
@@ -7,7 +6,7 @@ describe('Reducers / shop', () => {
 //part 1 : Structure
    describe('Structure', () => {
        
-    //Test Structure: reducer is a function
+    //Test 1 Structure: reducer is a function
        test('it is a Function', () => {
         expect(typeof shopReducer).toBe('function');
        });
@@ -17,7 +16,7 @@ describe('Reducers / shop', () => {
    describe('Execution', () => {
    
 
-        //Test 3 action SAVE_ARTICLES
+        //Test 2 action SAVE_ARTICLES
         test('it handle correctly SAVE_ARTICLES action', () => {
 
             const fakeProducts = [{ title: "product 1"}, {title: "product 2"}]
@@ -38,7 +37,7 @@ describe('Reducers / shop', () => {
 
         });
 
-        //Test 4 action SAVE_CATEGORIES
+        //Test 3 action SAVE_CATEGORIES
         test('it handle correctly SAVE_CATEGORIES action', () => {
 
             const fakeCategories = [{ category: "cat 1", type_of_product: true}, {category: "cat 2"}]
@@ -58,7 +57,7 @@ describe('Reducers / shop', () => {
         });
 
 
-        //Test 6 action ADD_PRODUCT_TO_CART
+        //Test 4 action ADD_PRODUCT_TO_CART
         test('it handle correctly ADD_PRODUCT_TO_CART', () => {
 
             const fakeProduct = {name: "product", description: "description", price: "10 €"}
@@ -80,7 +79,7 @@ describe('Reducers / shop', () => {
 
 
 
-        //Test 7 action REMOVE_PRODUCT_FROM_CART
+        //Test 5 action REMOVE_PRODUCT_FROM_CART
         test('it handle correctly REMOVE_PRODUCT_FROM_CART', () => {
 
             const fakeCart = [
@@ -114,7 +113,7 @@ describe('Reducers / shop', () => {
         });
 
 
-        //Test 8 action INCREMENT_CART_ITEM_QUANTITY
+        //Test 6 action INCREMENT_CART_ITEM_QUANTITY
         test('it handle correctly INCREMENT_CART_ITEM_QUANTITY', () => {
             
             const stateBefore = {
@@ -132,7 +131,7 @@ describe('Reducers / shop', () => {
         });
 
 
-        //Test 9 action DECREMENT_CART_ITEM_QUANTITY
+        //Test 7 action DECREMENT_CART_ITEM_QUANTITY
         test('it handle correctly DECREMENT_CART_ITEM_QUANTITY', () => {
             
             const product = {name: "product2", description: "description2", price: "10 €", quantity: 2} ;

@@ -3,7 +3,7 @@ import axios from 'axios';
 import { ADD_FAVORITES, FETCH_FAVORITES, saveFavorites, DELETE_FAVORITES, removeFavorites } from '../actions/favorites';
 
 const axiosInstance = axios.create({
-  baseURL: 'https://chibi-api.herokuapp.com',
+  baseURL: 'https://chib-caf.herokuapp.com',
 })
 
 const favoritesMiddleware = (store) => (next) => (action) => {
@@ -14,7 +14,7 @@ const favoritesMiddleware = (store) => (next) => (action) => {
       console.log("id de user:", id);
       console.log("action.product:", action.product.id);
       console.log("token:", token);
-        axios.post(`https://chibi-api.herokuapp.com/useWishList/${id}`, {id: action.product.id}, {
+        axios.post(`https://chib-caf.herokuapp.com/useWishList/${id}`, {id: action.product.id}, {
           credentials: 'include',
           headers: {
             Authorization: `Bearer ${token}`,
